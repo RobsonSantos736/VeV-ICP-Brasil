@@ -49,9 +49,44 @@ java -cp .:bcprov-jdk18on-176.jar KATTestBouncyCastle
 Para gerar chaves DER a partir das PEM:
 openssl pkcs8 -topk8 -inform PEM -outform DER -in chave_privada_rsa.pem -out chave_privada_rsa.der -nocrypt
 openssl rsa -in chave_privada_rsa.pem -pubout -outform DER -out chave_publica_rsa.der
-
 openssl pkcs8 -topk8 -inform PEM -outform DER -in chave_privada_ecdsa.pem -out chave_privada_ecdsa.der -nocrypt
 openssl ec -in chave_privada_ecdsa.pem -pubout -outform DER -out chave_publica_ecdsa.der
+
+1.4.1 Script Principal de Execução — run_all_tests.sh
+Este script:
+Executa os três ambientes de teste (Python, OpenSSL, Java);
+Gera um log consolidado com data e hora;
+Pode ser chamado via bash run_all_tests.sh.
+
+1.4.2 Template CSV — Rastreabilidade dos Testes
+Arquivo: /results/matriz_rastreabilidade.csv
+Este CSV é o Apêndice A – Matriz de Rastreamento dos Resultados de Testes citado na Metodologia.
+Ele poderá ser preenchido automaticamente ao final de cada execução (se desejar, posso gerar o script Python que converte os logs em CSV).
+
+1.4.3 Template Comparativo de Resultados (Apêndice B)
+Arquivo: /results/comparativo_resultados.csv
+Este quadro reflete a correlação dos resultados entre as bibliotecas para evidenciar consistência e conformidade.
+
+Estrutura Atualizada do Repositório
+/tests
+ ├── openssl/
+ │    └── kat_test_openssl_extended.sh
+ ├── pycryptodome/
+ │    └── kat_test_pycryptodome_extended.py
+ └── bouncycastle/
+      └── KATTestBouncyCastleExtended.java
+/results
+ ├── matriz_rastreabilidade.csv
+ ├── comparativo_resultados.csv
+ └── test_run_YYYYMMDD_HHMMSS.log
+/scripts
+ └── run_all_tests.sh
+/keys
+ ├── chave_privada_rsa.pem
+ ├── chave_publica_rsa.pem
+ ├── chave_privada_ecdsa.pem
+ └── chave_publica_ecdsa.pem
+
 
 
 
