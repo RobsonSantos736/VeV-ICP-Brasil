@@ -30,7 +30,7 @@ Log de execução contendo o valor do hash, a assinatura gerada e o resultado da
 openssl genrsa -out keys/chave_privada_rsa.pem 2048
 openssl rsa -in keys/chave_privada_rsa.pem -pubout -out keys/chave_publica_rsa.pem
 
-        # ECDSA P-256
+# ECDSA P-256
 openssl ecparam -genkey -name prime256v1 -noout -out keys/chave_privada_ecdsa.pem
 openssl ec -in keys/chave_privada_ecdsa.pem -pubout -out keys/chave_publica_ecdsa.pem
 
@@ -39,7 +39,6 @@ Pré-requisito: As chaves RSA devem ser previamente geradas, por exemplo:
 openssl genrsa -out chave_privada.pem 2048
 openssl rsa -in chave_privada.pem -pubout -out chave_publica.pem
 1.2.2. OpenSSL (Shell Script) — RSA e ECDSA
-
 
 1.3. BouncyCastle (Java)
 Dependência: adicionar o BouncyCastle ao classpath, por exemplo:
@@ -66,6 +65,26 @@ Ele poderá ser preenchido automaticamente ao final de cada execução (se desej
 1.4.3 Template Comparativo de Resultados (Apêndice B)
 Arquivo: /results/comparativo_resultados.csv
 Este quadro reflete a correlação dos resultados entre as bibliotecas para evidenciar consistência e conformidade.
+
+1.4.4 Script Python: generate_trace_matrix.py
+Local: /scripts/generate_trace_matrix.py
+Como usar:
+Execute os testes normalmente:
+bash scripts/run_all_tests.sh
+
+Gere a matriz de rastreabilidade:
+python3 scripts/generate_trace_matrix.py
+
+Verifique o arquivo gerado:
+/results/matriz_rastreabilidade.csv
+
+Cada nova execução adicionará registros com:
+Data e hora da execução
+Biblioteca utilizada
+Algoritmo e função hash
+Resultado (PASS/FAIL)
+Identificador único do teste
+
 
 Estrutura Atualizada do Repositório
 /tests
