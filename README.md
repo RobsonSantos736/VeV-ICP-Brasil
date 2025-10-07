@@ -24,14 +24,36 @@ Procedimentos:
 Evidência gerada:
 Log de execução contendo o valor do hash, a assinatura gerada e o resultado da verificação (pass/fail).
 1.1 PyCryptodome (Python)
+1.1.1. PyCryptodome (Python) — RSA e ECDSA
+       Geração de chaves:
+       # RSA 2048 bits
+openssl genrsa -out keys/chave_privada_rsa.pem 2048
+openssl rsa -in keys/chave_privada_rsa.pem -pubout -out keys/chave_publica_rsa.pem
+
+        # ECDSA P-256
+openssl ecparam -genkey -name prime256v1 -noout -out keys/chave_privada_ecdsa.pem
+openssl ec -in keys/chave_privada_ecdsa.pem -pubout -out keys/chave_publica_ecdsa.pem
+
 1.2. OpenSSL (Shell Script / Bash)
 Pré-requisito: As chaves RSA devem ser previamente geradas, por exemplo:
 openssl genrsa -out chave_privada.pem 2048
 openssl rsa -in chave_privada.pem -pubout -out chave_publica.pem
+1.2.2. OpenSSL (Shell Script) — RSA e ECDSA
+
+
 1.3. BouncyCastle (Java)
 Dependência: adicionar o BouncyCastle ao classpath, por exemplo:
 javac -cp bcprov-jdk18on-176.jar KATTestBouncyCastle.java
 java -cp .:bcprov-jdk18on-176.jar KATTestBouncyCastle
+1.3.3. BouncyCastle (Java) — RSA e ECDSA
+Para gerar chaves DER a partir das PEM:
+openssl pkcs8 -topk8 -inform PEM -outform DER -in chave_privada_rsa.pem -out chave_privada_rsa.der -nocrypt
+openssl rsa -in chave_privada_rsa.pem -pubout -outform DER -out chave_publica_rsa.der
+
+openssl pkcs8 -topk8 -inform PEM -outform DER -in chave_privada_ecdsa.pem -out chave_privada_ecdsa.der -nocrypt
+openssl ec -in chave_privada_ecdsa.pem -pubout -outform DER -out chave_publica_ecdsa.der
+
+
 
 2. Teste de Conformidade – Independent Algorithm Verification (IAV)
 Objetivo:
