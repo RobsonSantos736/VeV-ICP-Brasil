@@ -23,6 +23,15 @@ Procedimentos:
     5. Registrar no log: entrada, saída, algoritmo, resultado (pass/fail).
 Evidência gerada:
 Log de execução contendo o valor do hash, a assinatura gerada e o resultado da verificação (pass/fail).
+1.1 PyCryptodome (Python)
+1.2. OpenSSL (Shell Script / Bash)
+Pré-requisito: As chaves RSA devem ser previamente geradas, por exemplo:
+openssl genrsa -out chave_privada.pem 2048
+openssl rsa -in chave_privada.pem -pubout -out chave_publica.pem
+1.3. BouncyCastle (Java)
+Dependência: adicionar o BouncyCastle ao classpath, por exemplo:
+javac -cp bcprov-jdk18on-176.jar KATTestBouncyCastle.java
+java -cp .:bcprov-jdk18on-176.jar KATTestBouncyCastle
 
 2. Teste de Conformidade – Independent Algorithm Verification (IAV)
 Objetivo:
