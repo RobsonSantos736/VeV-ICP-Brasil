@@ -36,3 +36,7 @@ java -cp .:bcprov-jdk18on-176.jar KATTestBouncyCastleExtended | tee -a "$LOG_FIL
 cd "$RESULTS_DIR"
 echo -e "\n>>> Consolidação de resultados finalizada."
 echo "Resultados salvos em: $LOG_FILE"
+
+# ===== atualizando apendice A =====
+echo -e "\n>>> Atualizando matriz de rastreabilidade..."
+python3 "$ROOT_DIR/scripts/generate_trace_matrix.py"
