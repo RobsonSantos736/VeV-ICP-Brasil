@@ -1,0 +1,7 @@
+Teste ID,Biblioteca,Algoritmo,Hash,Vetor de Teste,Resultado,Tempo (ms),Observações
+KAT-01,PyCryptodome,RSA,SHA-256,Mensagem ICP-Brasil,PASS,15,Assinatura válida
+KAT-02,PyCryptodome,ECDSA,SHA-512,Mensagem ICP-Brasil,PASS,22,OK
+KAT-03,OpenSSL,RSA,SHA-256,Mensagem ICP-Brasil,PASS,12,Conformidade DOC-ICP-01.01
+KAT-04,OpenSSL,ECDSA,SHA-512,Mensagem ICP-Brasil,PASS,18,---
+KAT-05,BouncyCastle,RSA,SHA-256,Mensagem ICP-Brasil,PASS,25,---
+KAT-06,BouncyCastle,ECDSA,SHA-512,Mensagem ICP-Brasil,PASS,28,---
