@@ -1,0 +1,4 @@
+Algoritmo,Implementação 1,Implementação 2,Saída Hash (Base64),Assinatura (Base64),Resultado Comparativo
+RSA/SHA-256,PyCryptodome,OpenSSL,Iguais,Iguais,? Conformidade
+ECDSA/SHA-512,PyCryptodome,BouncyCastle,Iguais,Iguais,? Conformidade
+RSA/SHA-256,OpenSSL,BouncyCastle,Iguais,Iguais,? Conformidade
