@@ -40,3 +40,8 @@ echo "Resultados salvos em: $LOG_FILE"
 # ===== atualizando apendice A =====
 echo -e "\n>>> Atualizando matriz de rastreabilidade..."
 python3 "$ROOT_DIR/scripts/generate_trace_matrix.py"
+
+# ===== atualizando apendice B =====
+echo -e "\n>>> Gerando matriz de comparativo de resultados..."
+python3 "$ROOT_DIR/scripts/generate_comparison_matrix.py"
+
