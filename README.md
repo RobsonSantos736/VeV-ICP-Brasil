@@ -85,6 +85,19 @@ Algoritmo e função hash
 Resultado (PASS/FAIL)
 Identificador único do teste
 
+1.4.5 Script Python: generate_comparison_matrix.py
+Local: /scripts/generate_comparison_matrix.py
+verifica se os valores de hash e assinaturas gerados por diferentes bibliotecas (PyCryptodome, OpenSSL e BouncyCastle) são idênticos, garantindo conformidade entre implementações.
+Como usar:
+Após rodar todos os testes com o script principal:
+bash scripts/run_all_tests.sh
+
+Gere o comparativo automaticamente:
+python3 scripts/generate_comparison_matrix.py
+
+O arquivo gerado estará em:
+/results/comparativo_resultados.csv
+
 
 Estrutura Atualizada do Repositório
 /tests
